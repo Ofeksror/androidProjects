@@ -1,0 +1,139 @@
+import java.util.*;
+
+public class Node<T>
+{
+    private T value;                           // Node value
+    private Node<T> next;               // next Node
+
+    /* Constructor  - returns a Node with "value" as value and without successesor Node **/
+    public Node(T value)
+    {
+        this.value = value;
+        this.next = null;
+    }
+
+    /* Constructor  - returns a Node with "value" as value and its successesor is "next" **/    
+    public Node(T value, Node<T> next)
+    {
+        this.value = value;
+        this.next = next;
+    }
+    
+    /* Returns the Node "value" **/    
+    public T getValue()
+    {
+        return  this.value;
+    }
+
+    /* Returns the Node "next" Node **/        
+    public Node<T> getNext()
+    {   
+        return this.next;
+    }
+  
+    /* Return if the current Node has successor **/    
+    public boolean hasNext()
+    {
+         return (this.next != null);
+    }    
+
+    /* Set the value attribute to be "value" **/    
+    public void setValue(T value)
+    {
+         this.value = value;
+    }
+    
+    /* Set the next attribute to be "next" **/    
+    public void setNext(Node<T>  next)
+    {
+         this.next = next;
+    }
+
+      /* Returns a string that describes  the Node (and its' successesors **/        
+    public String toString()
+    {
+            return this.value + " --> " + this.next;
+    }
+}
+
+
+public class programs
+{
+    // Multiply a BIG number by mul
+    
+    public static void main(String[] args)
+    {
+        System.out.print("Enter length of number: ");
+        int length = reader.nextInt();
+
+        Node<Integer> number = generateBigNumber(length);
+        System.out.println(number);
+
+        System.out.println("Multiplying by 3: ");
+        Node<Integer> mul3 = multiplyBigNumber(number, 3);
+        System.out.println(mul3);
+
+        System.out.println("Multiplying by 7: ");
+        Node<Integer> mul7 = multiplyBigNumber(number, 7);
+        System.out.println(mul7);
+    }
+
+    public static Node<Integer> generateBigNumber(int length)
+    {
+        Node<Integer> number = null;
+
+        int n;
+        for (int i = 0; i < length; i++)
+        {
+            n = (int) (Math.random() * 10);
+            
+            number = new Node<Integer>(n, number);
+        }
+
+        return number;
+    }
+
+    public static Node<Integer> multiplyBigNumber(Node<Integer> number, int mul)
+    {
+        // Reverse the number
+        Node<Integer> reversedNumber = reverseList(number);
+
+        // The resulted number of the multiplication
+        Node<Integer> result = null;
+
+        // Multiply each digit by mul, save the carry.
+        int carry = 0;
+
+        Node<Integer> pos = reversedNumber;
+        while (pos != null)
+        {
+            int multiplication = pos.getValue() * mul;
+            multiplication += carry;
+
+            if (multiplication >= 10)
+            {
+                carry = multiplication % 10;
+            }
+            
+            result = new Node<Integer>(multiplication % 10, result);
+
+            pos = pos.getNext();
+        }
+
+        return result;
+    }
+
+    public static Node<Integer> reverseList(Node<T> list)
+    {
+        Node<T> reversed = null; 
+        
+        Node<T> pos = list;
+        while (pos != null)
+        {
+            reversed = new Node<T>(pos.getValue(), reversed);
+            pos = pos.getNext();
+        }
+
+        return reversed;
+    }
+}
