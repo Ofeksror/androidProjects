@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    tools:context=".MainActivity"
+    >
+
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:text="Play Now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_height="250dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+
+        >
+
+        <Button
+            android:id="@+id/btnB1"
+            android:layout_width="80dp"
+            android:layout_height="250dp"
+            android:layout_marginRight="12dp"
+            android:text="Do"
+            android:background="#0929d9" />
+
+        <Button
+            android:id="@+id/btnB2"
+            android:layout_width="80dp"
+            android:layout_height="250dp"
+            android:layout_marginRight="12dp"
+            android:text="Re"
+            android:background="#d61f07" />
+
+        <Button
+            android:id="@+id/btnB3"
+            android:layout_width="80dp"
+            android:layout_height="250dp"
+            android:layout_marginRight="12dp"
+            android:text="Fa"
+            android:background="#d607ba" />
+
+        <Button
+            android:id="@+id/btnB4"
+            android:layout_width="80dp"
+            android:layout_height="250dp"
+            android:text="So"
+            android:background="#f9e217" />
+    </LinearLayout>
+</LinearLayout>
